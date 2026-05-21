@@ -1,3 +1,4 @@
+from seo_analyzer.analyzer import analyze_html
 from seo_analyzer.onpage import check_onpage
 
 GOOD_HTML = """
@@ -49,3 +50,14 @@ def test_bad_page_flags_essentials():
     assert "h1_missing" in codes
     assert "thin_content" in codes
     assert metrics["word_count"] < 50
+
+
+def test_analyze_html_offline_skips_header_checks():
+    report = analyze_html("https://example.com", GOOD_HTML)
+    codes = {i["code"] for i in report["issues"]}
+    # Offline mode no debe inventar issues de compresión ni TTFB
+    assert "no_compression" not in codes
+    assert "slow_response" not in codes
+    assert "moderate_response" not in codes
+    assert report["metrics"]["technical"]["offline_mode"] is True
+    assert report["metrics"]["technical"]["ttfb_ms"] is None

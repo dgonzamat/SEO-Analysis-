@@ -122,9 +122,11 @@ def check_technical(html: str, final_url: str, headers: dict, status_code: int, 
             recommendation=f"Genera y publica {root}/sitemap.xml con todas las URLs indexables.",
         ))
 
+    offline = not headers
+    metrics["offline_mode"] = offline
     metrics["server"] = headers.get("Server", "")
     metrics["compression"] = headers.get("Content-Encoding", "")
-    if not metrics["compression"]:
+    if not offline and not metrics["compression"]:
         issues.append(Issue(
             code="no_compression",
             category="technical",
@@ -133,8 +135,8 @@ def check_technical(html: str, final_url: str, headers: dict, status_code: int, 
             recommendation="Habilita gzip o brotli en el servidor para reducir el peso de transferencia.",
         ))
 
-    metrics["ttfb_ms"] = elapsed_ms
-    if elapsed_ms > 1500:
+    metrics["ttfb_ms"] = None if offline else elapsed_ms
+    if not offline and elapsed_ms > 1500:
         issues.append(Issue(
             code="slow_response",
             category="technical",
@@ -142,7 +144,7 @@ def check_technical(html: str, final_url: str, headers: dict, status_code: int, 
             message=f"Respuesta lenta del servidor ({elapsed_ms} ms).",
             recommendation="Optimiza backend, usa CDN y caché. Objetivo TTFB < 800 ms.",
         ))
-    elif elapsed_ms > 800:
+    elif not offline and elapsed_ms > 800:
         issues.append(Issue(
             code="moderate_response",
             category="technical",

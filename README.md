@@ -31,7 +31,14 @@ seo-analyze https://ejemplo.com --strategy mobile
 
 # Modo CI: falla si el score queda bajo 80
 seo-analyze https://ejemplo.com --fail-under 80
+
+# Analizar HTML local (sitio bloquea tu IP, staging, o detrás de auth)
+curl -L -A "Mozilla/5.0" https://ejemplo.com > page.html
+seo-analyze https://ejemplo.com --html page.html
 ```
+
+> En modo `--html` se omiten los checks que dependen de headers HTTP reales
+> (compresión, TTFB). El resto del análisis funciona normal.
 
 Si no tienes el comando instalado, también puedes ejecutar:
 
