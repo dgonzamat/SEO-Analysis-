@@ -37,21 +37,24 @@ jobs:
           run_one() {
             local url="$1" name="$2"
             echo "=== $name → $url ==="
-            {
-              echo "URL: $url"
-              echo "Timestamp: $(date -u +%FT%TZ)"
-              echo "Runner IP: $(curl -s --max-time 5 https://api.ipify.org || echo '?')"
-              echo ""
-              echo "--- curl -I (HEAD) ---"
-              curl -ILs -A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' --max-time 20 "$url" 2>&1 | head -30
-              echo ""
-              echo "--- curl -I sin UA ---"
-              curl -ILs --max-time 20 "$url" 2>&1 | head -10
-            } > "reports/${name}.log" 2>&1
 
-            seo-analyze "$url" --format json -o "reports/${name}.json" 2>>"reports/${name}.log" || {
-              echo "WARN: seo-analyze falló para $url (logs en reports/${name}.log)"
-            }
+            if echo "$url" | grep -qiE 'sitemap.*\.xml|/sitemap'; then
+              echo "→ modo sitemap: expandiendo y auditando cada URL"
+              seo-analyze --sitemap "$url" --out-dir "reports/${name}" --max-urls 100 2>&1 | tee "reports/${name}.log"
+            else
+              {
+                echo "URL: $url"
+                echo "Timestamp: $(date -u +%FT%TZ)"
+                echo "Runner IP: $(curl -s --max-time 5 https://api.ipify.org || echo '?')"
+                echo ""
+                echo "--- curl -I (HEAD) ---"
+                curl -ILs -A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' --max-time 20 "$url" 2>&1 | head -30
+              } > "reports/${name}.log" 2>&1
+
+              seo-analyze "$url" --format json -o "reports/${name}.json" 2>>"reports/${name}.log" || {
+                echo "WARN: seo-analyze falló para $url (logs en reports/${name}.log)"
+              }
+            fi
           }
 
           if [ -n "${{ github.event.inputs.url }}" ]; then
