@@ -34,9 +34,9 @@ def _color(text: str, color: str, use_color: bool) -> str:
 def render_console(report: dict, use_color: bool = True) -> str:
     out: list[str] = []
     score = report["score"]
+    protection = report.get("protection")
     overall = score["overall_score"]
     grade = score["grade"]
-    grade_color = GREEN if overall >= 80 else YELLOW if overall >= 60 else RED
 
     out.append(_color("═" * 70, CYAN, use_color))
     out.append(_color("  REPORTE SEO", BOLD + CYAN, use_color))
@@ -45,6 +45,24 @@ def render_console(report: dict, use_color: bool = True) -> str:
     out.append(f"  Status HTTP:   {report['status_code']}    Redirects: {report['redirects']}    TTFB: {report['ttfb_ms']} ms")
     out.append(f"  Analizado:     {report['analyzed_at']}")
     out.append("")
+
+    if protection:
+        out.append(_color(f"  ⚠  ANÁLISIS BLOQUEADO POR {protection['name'].upper()}", BOLD + RED, use_color))
+        out.append(f"  Evidencia: {protection['evidence']}")
+        out.append("")
+        out.append("  El HTML recibido es la página de challenge del WAF, no tu sitio real.")
+        out.append("  Cualquier score aquí sería engañoso, así que se omite.")
+        out.append("")
+        out.append(_color("─" * 70, DIM, use_color))
+        out.append(_color("  CÓMO CONTINUAR", BOLD, use_color))
+        out.append(_color("─" * 70, DIM, use_color))
+        for issue in report["issues"]:
+            out.append(f"  → {issue['recommendation']}")
+        out.append("")
+        out.append(_color("═" * 70, CYAN, use_color))
+        return "\n".join(out)
+
+    grade_color = GREEN if overall >= 80 else YELLOW if overall >= 60 else RED
     out.append(_color(f"  SCORE GLOBAL: {overall}/100   GRADE: {grade}", BOLD + grade_color, use_color))
     out.append("")
     out.append(_color("  Desglose por categoría:", BOLD, use_color))
