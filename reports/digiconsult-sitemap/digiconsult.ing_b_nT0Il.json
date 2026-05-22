@@ -1,10 +1,10 @@
 {
   "url": "https://digiconsult.ing/b/nT0Il",
-  "final_url": "https://payhip.com/global-identity?redirect=https%3A%2F%2Fdigiconsult.ing%2Fb%2FnT0Il",
+  "final_url": "https://payhip.com/global-identity?redirect=https%3A%2F%2Fdigiconsult.ing%2Fb%2Fai-use-case-prioritization-matrix",
   "status_code": 403,
-  "redirects": 1,
-  "ttfb_ms": 426,
-  "analyzed_at": "2026-05-22T14:43:52.817872+00:00",
+  "redirects": 2,
+  "ttfb_ms": 588,
+  "analyzed_at": "2026-05-22T15:27:35.952576+00:00",
   "protection": {
     "type": "cloudflare",
     "name": "Cloudflare bot challenge",
