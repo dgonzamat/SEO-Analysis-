@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seo-analyzer"
+version = "0.1.0"
+description = "CLI de análisis SEO con score 0-100 y recomendaciones priorizadas."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "dgonzamat" }]
+dependencies = [
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=5.0.0",
+    "click>=8.1.0",
+]
+
+[project.scripts]
+seo-analyze = "seo_analyzer.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+include = ["seo_analyzer*"]
