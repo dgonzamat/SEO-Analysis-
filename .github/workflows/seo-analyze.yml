@@ -1,0 +1,64 @@
+name: SEO Analyze (bridge)
+
+on:
+  push:
+    paths:
+      - 'requests/*.txt'
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'URL a analizar'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install analyzer
+        run: pip install -e .
+
+      - name: Run analyzer for each request
+        run: |
+          mkdir -p reports
+          shopt -s nullglob
+
+          # workflow_dispatch input
+          if [ -n "${{ github.event.inputs.url }}" ]; then
+            url="${{ github.event.inputs.url }}"
+            name=$(echo "$url" | sed -E 's|https?://||; s|[^a-zA-Z0-9]|_|g' | head -c 80)
+            echo "→ dispatch: $url"
+            seo-analyze "$url" --format json -o "reports/${name}.json" || true
+          fi
+
+          # request files
+          for f in requests/*.txt; do
+            url=$(tr -d '\r\n ' < "$f")
+            [ -z "$url" ] && continue
+            name=$(basename "$f" .txt)
+            echo "→ $name: $url"
+            seo-analyze "$url" --format json -o "reports/${name}.json" || true
+          done
+
+      - name: Commit reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/ || true
+          if git diff --cached --quiet; then
+            echo "Sin cambios en reports/"
+          else
+            git commit -m "ci: SEO reports [skip ci]"
+            git push
+          fi
