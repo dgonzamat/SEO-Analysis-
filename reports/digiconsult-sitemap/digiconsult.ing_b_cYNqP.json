@@ -3,8 +3,8 @@
   "final_url": "https://payhip.com/global-identity?redirect=https%3A%2F%2Fdigiconsult.ing%2Fb%2Ftarget-operating-model-toolkit",
   "status_code": 403,
   "redirects": 2,
-  "ttfb_ms": 393,
-  "analyzed_at": "2026-05-22T16:24:39.737165+00:00",
+  "ttfb_ms": 426,
+  "analyzed_at": "2026-05-22T18:02:55.786295+00:00",
   "protection": {
     "type": "cloudflare",
     "name": "Cloudflare bot challenge",
