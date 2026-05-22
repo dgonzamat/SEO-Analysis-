@@ -1,0 +1,196 @@
+{
+  "url": "https://digiconsult.ing/?v=1779459462",
+  "final_url": "https://payhip.com/global-identity?redirect=https%3A%2F%2Fdigiconsult.ing%2F%3Fv%3D1779459462",
+  "status_code": 403,
+  "redirects": 1,
+  "ttfb_ms": 300,
+  "analyzed_at": "2026-05-22T14:18:03.296418+00:00",
+  "score": {
+    "overall_score": 60,
+    "grade": "D",
+    "categories": {
+      "onpage": {
+        "score": 65,
+        "deductions": 35,
+        "issue_count": 8
+      },
+      "technical": {
+        "score": 54,
+        "deductions": 46,
+        "issue_count": 6
+      },
+      "performance": {
+        "score": 100,
+        "deductions": 0,
+        "issue_count": 0
+      }
+    },
+    "severity_counts": {
+      "critical": 2,
+      "high": 3,
+      "medium": 6,
+      "low": 3,
+      "info": 0
+    },
+    "total_issues": 14
+  },
+  "metrics": {
+    "onpage": {
+      "lang": "en-US",
+      "title": "Just a moment...",
+      "title_length": 16,
+      "meta_description": "",
+      "meta_description_length": 0,
+      "h1_count": 0,
+      "h1": [],
+      "headings": {
+        "h1": 0,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "images_total": 0,
+      "images_without_alt": 0,
+      "links_internal": 0,
+      "links_external": 0,
+      "open_graph": {},
+      "twitter_card": false,
+      "word_count": 9
+    },
+    "technical": {
+      "https": true,
+      "status_code": 403,
+      "canonical": null,
+      "viewport": true,
+      "charset_declared": true,
+      "robots_meta": "noindex,nofollow",
+      "structured_data_blocks": 0,
+      "robots_txt": false,
+      "sitemap_xml": false,
+      "offline_mode": false,
+      "server": "cloudflare",
+      "compression": "gzip",
+      "ttfb_ms": 300
+    },
+    "performance": {
+      "strategy": "mobile",
+      "enabled": false
+    }
+  },
+  "issues": [
+    {
+      "code": "bad_status",
+      "category": "technical",
+      "severity": "critical",
+      "message": "La página devolvió status 403.",
+      "recommendation": "Corrige el error para que Google pueda indexar la URL.",
+      "evidence": ""
+    },
+    {
+      "code": "noindex",
+      "category": "technical",
+      "severity": "critical",
+      "message": "La página tiene meta robots = noindex.",
+      "recommendation": "Elimina 'noindex' si quieres que Google indexe esta URL.",
+      "evidence": "noindex,nofollow"
+    },
+    {
+      "code": "h1_missing",
+      "category": "onpage",
+      "severity": "high",
+      "message": "No hay etiqueta <h1>.",
+      "recommendation": "Cada página debe tener un <h1> único con la keyword principal.",
+      "evidence": ""
+    },
+    {
+      "code": "meta_description_missing",
+      "category": "onpage",
+      "severity": "high",
+      "message": "No hay meta description.",
+      "recommendation": "Agrega <meta name='description'> de 70-160 caracteres que invite al click.",
+      "evidence": ""
+    },
+    {
+      "code": "thin_content",
+      "category": "onpage",
+      "severity": "high",
+      "message": "Contenido muy corto (9 palabras).",
+      "recommendation": "Para SEO competitivo apunta a 600+ palabras de contenido sustantivo.",
+      "evidence": ""
+    },
+    {
+      "code": "headings_flat",
+      "category": "onpage",
+      "severity": "medium",
+      "message": "La página casi no usa headings (H2-H6).",
+      "recommendation": "Estructura el contenido con H2/H3 para mejorar legibilidad y SEO semántico.",
+      "evidence": ""
+    },
+    {
+      "code": "title_too_short",
+      "category": "onpage",
+      "severity": "medium",
+      "message": "El título tiene 16 caracteres (mínimo recomendado 30).",
+      "recommendation": "Expande el título a 30-60 caracteres incluyendo la keyword principal.",
+      "evidence": "Just a moment..."
+    },
+    {
+      "code": "canonical_missing",
+      "category": "technical",
+      "severity": "medium",
+      "message": "No hay etiqueta canonical.",
+      "recommendation": "Agrega <link rel='canonical' href='...'> apuntando a la URL preferida.",
+      "evidence": ""
+    },
+    {
+      "code": "robots_txt_missing",
+      "category": "technical",
+      "severity": "medium",
+      "message": "robots.txt no es accesible.",
+      "recommendation": "Publica https://payhip.com/robots.txt con directivas Allow/Disallow y referencia al sitemap.",
+      "evidence": ""
+    },
+    {
+      "code": "sitemap_missing",
+      "category": "technical",
+      "severity": "medium",
+      "message": "sitemap.xml no es accesible en la raíz.",
+      "recommendation": "Genera y publica https://payhip.com/sitemap.xml con todas las URLs indexables.",
+      "evidence": ""
+    },
+    {
+      "code": "structured_data_missing",
+      "category": "technical",
+      "severity": "medium",
+      "message": "No hay datos estructurados (JSON-LD).",
+      "recommendation": "Agrega schema.org JSON-LD (Article, Product, Organization, etc.) para rich results.",
+      "evidence": ""
+    },
+    {
+      "code": "internal_links_few",
+      "category": "onpage",
+      "severity": "low",
+      "message": "Solo 0 enlaces internos.",
+      "recommendation": "Agrega enlaces internos contextuales para distribuir autoridad y mejorar el crawl.",
+      "evidence": ""
+    },
+    {
+      "code": "open_graph_incomplete",
+      "category": "onpage",
+      "severity": "low",
+      "message": "Open Graph incompleto: faltan og:description, og:image, og:title, og:url.",
+      "recommendation": "Completa og:title, og:description, og:image y og:url para previews en redes sociales.",
+      "evidence": ""
+    },
+    {
+      "code": "twitter_card_missing",
+      "category": "onpage",
+      "severity": "low",
+      "message": "No hay etiqueta twitter:card.",
+      "recommendation": "Agrega <meta name='twitter:card' content='summary_large_image'> para X/Twitter.",
+      "evidence": ""
+    }
+  ]
+}
