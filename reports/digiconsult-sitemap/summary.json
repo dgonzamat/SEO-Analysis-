@@ -1,0 +1,149 @@
+{
+  "sitemap": "https://digiconsult.ing/sitemap.xml",
+  "results": [
+    {
+      "url": "https://digiconsult.ing",
+      "slug": "digiconsult.ing",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing.json"
+    },
+    {
+      "url": "https://digiconsult.ing/collection/all",
+      "slug": "digiconsult.ing_collection_all",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_collection_all.json"
+    },
+    {
+      "url": "https://digiconsult.ing/collection/premium-individual-strategic-resource",
+      "slug": "digiconsult.ing_collection_premium-individual-strategic-resource",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_collection_premium-individual-strategic-resource.json"
+    },
+    {
+      "url": "https://digiconsult.ing/collection/premium-strategy-toolkits",
+      "slug": "digiconsult.ing_collection_premium-strategy-toolkits",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_collection_premium-strategy-toolkits.json"
+    },
+    {
+      "url": "https://digiconsult.ing/b/OuFCL",
+      "slug": "digiconsult.ing_b_OuFCL",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_b_OuFCL.json"
+    },
+    {
+      "url": "https://digiconsult.ing/b/ktsAq",
+      "slug": "digiconsult.ing_b_ktsAq",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_b_ktsAq.json"
+    },
+    {
+      "url": "https://digiconsult.ing/b/jcJC0",
+      "slug": "digiconsult.ing_b_jcJC0",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_b_jcJC0.json"
+    },
+    {
+      "url": "https://digiconsult.ing/b/cYNqP",
+      "slug": "digiconsult.ing_b_cYNqP",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_b_cYNqP.json"
+    },
+    {
+      "url": "https://digiconsult.ing/b/cQIgD",
+      "slug": "digiconsult.ing_b_cQIgD",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_b_cQIgD.json"
+    },
+    {
+      "url": "https://digiconsult.ing/b/nT0Il",
+      "slug": "digiconsult.ing_b_nT0Il",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_b_nT0Il.json"
+    },
+    {
+      "url": "https://digiconsult.ing/b/8jCzW",
+      "slug": "digiconsult.ing_b_8jCzW",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_b_8jCzW.json"
+    },
+    {
+      "url": "https://digiconsult.ing/b/H8EvL",
+      "slug": "digiconsult.ing_b_H8EvL",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_b_H8EvL.json"
+    },
+    {
+      "url": "https://digiconsult.ing/contact",
+      "slug": "digiconsult.ing_contact",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_contact.json"
+    },
+    {
+      "url": "https://digiconsult.ing/blog/strategy-insights/5-strategy-frameworks-every-consultant-should-master-in-2026",
+      "slug": "digiconsult.ing_blog_strategy-insights_5-strategy-frameworks-every-consultant-should-master-in-2026",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_blog_strategy-insights_5-strategy-frameworks-every-consultant-should-master-in-2026.json"
+    },
+    {
+      "url": "https://digiconsult.ing/blog/strategy-insights/how-to-build-an-enhanced-swot-analysis-in-30-minutes-with-template",
+      "slug": "digiconsult.ing_blog_strategy-insights_how-to-build-an-enhanced-swot-analysis-in-30-minutes-with-template",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_blog_strategy-insights_how-to-build-an-enhanced-swot-analysis-in-30-minutes-with-template.json"
+    },
+    {
+      "url": "https://digiconsult.ing/blog/strategy-insights/why-90-of-strategy-decks-fail-and-what-top-consultants-do-differently",
+      "slug": "digiconsult.ing_blog_strategy-insights_why-90-of-strategy-decks-fail-and-what-top-consultants-do-differently",
+      "score": null,
+      "grade": "—",
+      "blocked": true,
+      "protection": "Cloudflare bot challenge",
+      "report": "digiconsult.ing_blog_strategy-insights_why-90-of-strategy-decks-fail-and-what-top-consultants-do-differently.json"
+    }
+  ]
+}
