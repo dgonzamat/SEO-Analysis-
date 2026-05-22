@@ -3,8 +3,8 @@
   "final_url": "https://payhip.com/global-identity?redirect=https%3A%2F%2Fdigiconsult.ing%2Fb%2Fdigital-transformation-business-case",
   "status_code": 403,
   "redirects": 2,
-  "ttfb_ms": 652,
-  "analyzed_at": "2026-05-22T15:27:33.223051+00:00",
+  "ttfb_ms": 428,
+  "analyzed_at": "2026-05-22T16:24:38.354114+00:00",
   "protection": {
     "type": "cloudflare",
     "name": "Cloudflare bot challenge",

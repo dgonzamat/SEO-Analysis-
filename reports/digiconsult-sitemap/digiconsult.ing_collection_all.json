@@ -3,8 +3,8 @@
   "final_url": "https://payhip.com/global-identity?redirect=https%3A%2F%2Fdigiconsult.ing%2Fcollection%2Fall",
   "status_code": 403,
   "redirects": 1,
-  "ttfb_ms": 391,
-  "analyzed_at": "2026-05-22T15:27:31.711721+00:00",
+  "ttfb_ms": 254,
+  "analyzed_at": "2026-05-22T16:24:37.271637+00:00",
   "protection": {
     "type": "cloudflare",
     "name": "Cloudflare bot challenge",

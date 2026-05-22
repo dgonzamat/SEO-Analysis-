@@ -3,8 +3,8 @@
   "final_url": "https://payhip.com/global-identity?redirect=https%3A%2F%2Fdigiconsult.ing%2Fb%2Fcx-transformation-toolkit",
   "status_code": 403,
   "redirects": 2,
-  "ttfb_ms": 519,
-  "analyzed_at": "2026-05-22T15:27:34.263675+00:00",
+  "ttfb_ms": 417,
+  "analyzed_at": "2026-05-22T16:24:39.341937+00:00",
   "protection": {
     "type": "cloudflare",
     "name": "Cloudflare bot challenge",
