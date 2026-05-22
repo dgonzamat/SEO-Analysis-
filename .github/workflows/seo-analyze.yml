@@ -34,22 +34,40 @@ jobs:
           mkdir -p reports
           shopt -s nullglob
 
-          # workflow_dispatch input
+          run_one() {
+            local url="$1" name="$2"
+            echo "=== $name → $url ==="
+            {
+              echo "URL: $url"
+              echo "Timestamp: $(date -u +%FT%TZ)"
+              echo "Runner IP: $(curl -s --max-time 5 https://api.ipify.org || echo '?')"
+              echo ""
+              echo "--- curl -I (HEAD) ---"
+              curl -ILs -A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' --max-time 20 "$url" 2>&1 | head -30
+              echo ""
+              echo "--- curl -I sin UA ---"
+              curl -ILs --max-time 20 "$url" 2>&1 | head -10
+            } > "reports/${name}.log" 2>&1
+
+            seo-analyze "$url" --format json -o "reports/${name}.json" 2>>"reports/${name}.log" || {
+              echo "WARN: seo-analyze falló para $url (logs en reports/${name}.log)"
+            }
+          }
+
           if [ -n "${{ github.event.inputs.url }}" ]; then
             url="${{ github.event.inputs.url }}"
             name=$(echo "$url" | sed -E 's|https?://||; s|[^a-zA-Z0-9]|_|g' | head -c 80)
-            echo "→ dispatch: $url"
-            seo-analyze "$url" --format json -o "reports/${name}.json" || true
+            run_one "$url" "$name"
           fi
 
-          # request files
           for f in requests/*.txt; do
-            url=$(tr -d '\r\n ' < "$f")
+            url=$(grep -m1 -Eo 'https?://[^[:space:]]+' "$f" || true)
             [ -z "$url" ] && continue
             name=$(basename "$f" .txt)
-            echo "→ $name: $url"
-            seo-analyze "$url" --format json -o "reports/${name}.json" || true
+            run_one "$url" "$name"
           done
+
+          ls -la reports/ || true
 
       - name: Commit reports
         run: |
