@@ -1,0 +1,83 @@
+name: SEO Analyze (bridge)
+
+on:
+  push:
+    paths:
+      - 'requests/*.txt'
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'URL a analizar'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install analyzer
+        run: pip install -e .
+
+      - name: Run analyzer for each request
+        run: |
+          mkdir -p reports
+          shopt -s nullglob
+
+          run_one() {
+            local url="$1" name="$2"
+            echo "=== $name → $url ==="
+            {
+              echo "URL: $url"
+              echo "Timestamp: $(date -u +%FT%TZ)"
+              echo "Runner IP: $(curl -s --max-time 5 https://api.ipify.org || echo '?')"
+              echo ""
+              echo "--- curl -I (HEAD) ---"
+              curl -ILs -A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' --max-time 20 "$url" 2>&1 | head -30
+              echo ""
+              echo "--- curl -I sin UA ---"
+              curl -ILs --max-time 20 "$url" 2>&1 | head -10
+            } > "reports/${name}.log" 2>&1
+
+            seo-analyze "$url" --format json -o "reports/${name}.json" 2>>"reports/${name}.log" || {
+              echo "WARN: seo-analyze falló para $url (logs en reports/${name}.log)"
+            }
+          }
+
+          if [ -n "${{ github.event.inputs.url }}" ]; then
+            url="${{ github.event.inputs.url }}"
+            name=$(echo "$url" | sed -E 's|https?://||; s|[^a-zA-Z0-9]|_|g' | head -c 80)
+            run_one "$url" "$name"
+          fi
+
+          for f in requests/*.txt; do
+            url=$(grep -m1 -Eo 'https?://[^[:space:]]+' "$f" || true)
+            [ -z "$url" ] && continue
+            name=$(basename "$f" .txt)
+            run_one "$url" "$name"
+          done
+
+          ls -la reports/ || true
+
+      - name: Commit reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f reports/ || true
+          if git diff --cached --quiet; then
+            echo "Sin cambios en reports/"
+            ls -la reports/ || true
+          else
+            git commit -m "ci: SEO reports [skip ci]"
+            git push
+          fi

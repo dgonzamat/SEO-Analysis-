@@ -1,0 +1,47 @@
+URL: https://digiconsult.ing/?v=1779459462
+Timestamp: 2026-05-22T14:17:59Z
+Runner IP: 172.214.47.50
+
+--- curl -I (HEAD) ---
+HTTP/2 307 
+date: Fri, 22 May 2026 14:17:59 GMT
+content-type: text/html; charset=UTF-8
+content-length: 0
+location: https://payhip.com/global-identity?redirect=https%3A%2F%2Fdigiconsult.ing%2F%3Fv%3D1779459462
+set-cookie: AWSALB=2cjyTUV6SS3kjt7VoECq86p+bPC1WKQQXlJa25kMfvQFYyOndXrgM+b/ytGNYbXwhBASumaGeVCQ1WAv34tVgBKie3g0wr5zkckNMnoI/UnGtuYJ2irOyZX6PECp; Expires=Fri, 29 May 2026 14:17:59 GMT; Path=/
+set-cookie: AWSALBCORS=2cjyTUV6SS3kjt7VoECq86p+bPC1WKQQXlJa25kMfvQFYyOndXrgM+b/ytGNYbXwhBASumaGeVCQ1WAv34tVgBKie3g0wr5zkckNMnoI/UnGtuYJ2irOyZX6PECp; Expires=Fri, 29 May 2026 14:17:59 GMT; Path=/; SameSite=None; Secure
+set-cookie: cisession=9gji0TFb5tgD6YsWzIw4zKFV434xIMpryaRR80OUbo04Z3plxpEnrMrFwEvusaCP1pSIZwm33H1D3VVtEmo62dV9CNxqAN%2B1SRMTFh423bKWVlHk%2Bm%2B5SrDoGCEMOI0Y808XWg94W6c5ACfjPIBp13OcI3CRkIYSLS8jMHUP6kHHii0Ka%2BLMVn0d%2BdJN7CWgVqKL1n4zc0OUw4ACVzaQvtHRSovFhDXdKeSKG%2BKPUMe%2BS7NMJVn2A2NdurZ74UIB0QRvM6b5F06fZ1Ttb6Ik57LhGz4sd96VKmL2%2Brqy%2FOKj%2B%2F2LxmwV6Co11cztwLFr86lcB4UwNHeDDuuYi2pUHFETEz2F49CEqAgPlFpkg%2Fou7K06B6%2FeIUrC2OzaasDL; expires=Sun, 21-Jun-2026 14:17:59 GMT; Max-Age=2592000; path=/;Secure;SameSite=None
+set-cookie: cisession=gXuR%2BbjseesbrW1F3bAf%2Bhnw9YaEAs4LZ%2Bah%2FX42N%2B6HoZNHnjnSl3W7vzEO85tXZaUbmq1DJqhxmtE3dO7AJdMWqDPKGVKTzbCNekUlE1SC7C%2BYdbtbUMaylPzreoactIo1KVT5te6NiX5hA5ht%2B9fnKjsRruOpOEBvtxsGGpnTRsNtxjn4qv95uMGkQbs3TwXF72ckKpQVL5wWfD9DyJ5BavRn7Sx5r2zwXWd0QE%2B%2F6A9CBzXS9mMxbE2vEHnqKSfoBLyKQb8a0v518QCmHLpq8RJtZ2FSLhKOfp5qaSSSsifAwqbvpN0rZcEMsrVqHv48mrDOGU5ZpC4RDdYnlQ%3D%3D; expires=Sun, 21-Jun-2026 14:17:59 GMT; Max-Age=2592000; path=/;Secure;SameSite=None
+x-varnish: 99130109
+age: 0
+via: 1.1 varnish (Varnish/6.3)
+section-io-cache: Miss
+section-io-id: 49cd9ac908aae9e7367e4abd9ee21717
+
+HTTP/2 403 
+date: Fri, 22 May 2026 14:18:00 GMT
+content-type: text/html; charset=UTF-8
+content-length: 5943
+accept-ch: Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA
+cf-mitigated: challenge
+content-security-policy: default-src 'none'; script-src 'nonce-KFslqb3jhPC2NwowY1JYN7' 'unsafe-eval' https://challenges.cloudflare.com; script-src-attr 'none'; style-src 'unsafe-inline'; img-src 'self' https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; frame-src 'self' https://challenges.cloudflare.com blob:; child-src 'self' https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri 'self'
+server: cloudflare
+critical-ch: Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA
+cross-origin-embedder-policy: require-corp
+cross-origin-opener-policy: same-origin
+cross-origin-resource-policy: same-origin
+origin-agent-cluster: ?1
+permissions-policy: accelerometer=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=(),xr-spatial-tracking=(self)
+referrer-policy: same-origin
+
+--- curl -I sin UA ---
+HTTP/2 403 
+date: Fri, 22 May 2026 14:18:00 GMT
+content-type: text/html
+content-length: 118
+x-varnish: 97891984
+age: 0
+via: 1.1 varnish (Varnish/6.3)
+section-io-cache: Miss
+section-io-id: e5ad8bea87bddd3b8787832f507e10f2
+
